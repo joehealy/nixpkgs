@@ -22,9 +22,9 @@ in {
 
   qemuBinary = qemuPkg:
     {
-      x86_64-linux = "${qemuPkg}/bin/qemu-kvm -cpu host";
+      x86_64-linux = "${qemuPkg}/bin/qemu-kvm -cpu kvm64";
       armv7l-linux =
-        "${qemuPkg}/bin/qemu-system-arm -enable-kvm -machine virt -cpu kvm64";
+        "${qemuPkg}/bin/qemu-system-arm -enable-kvm -machine virt -cpu host";
       aarch64-linux =
         "${qemuPkg}/bin/qemu-system-aarch64 -enable-kvm -machine virt,gic-version=host -cpu host";
       x86_64-darwin = "${qemuPkg}/bin/qemu-kvm -cpu host";
